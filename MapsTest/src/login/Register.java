@@ -24,7 +24,6 @@ public class Register extends HttpServlet {
 		String mobile = request.getParameter("mobile");
 		String email = request.getParameter("email");
 		String repass = request.getParameter("repass");
-		System.out.println(username + " " + pass + " " + aadhar);
 		boolean as = false;
 		try {	
 			as = AddAgent.addUser(username, repass, fName, lName, aadhar, mobile, email);	

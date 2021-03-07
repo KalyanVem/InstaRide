@@ -50,7 +50,7 @@ body {
 		margin-top: 80%;
 	}
 	.register-form {
-		margin-top: 2%;
+		margin-top: 20%;
 	}
 }
 
@@ -69,12 +69,26 @@ body {
 	color: #fff;
 }
 
-.btn-block{
-  font-size:0.875;
-  word-wrap: break-word;
-  width: 100px; 
-  max-width: 100%;
+.btn-block {
+	font-size: 0.875;
+	word-wrap: break-word;
+	width: 100px;
+	max-width: 100%;
 }
-.btn-block-home{
-  width: 10px; 
+
+.btn-block-home {
+	width: 100px;
+}
+.grid-container {
+  left:100px;
+  display: inline-grid;
+  grid-template-columns: auto auto ;
+  background-color: #ffffff;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }
