@@ -2,7 +2,7 @@
 Fallow the instructions given below to get the app running
 
 ## IDE
-You can choose any IDE and configure it for web project. One that I recommend is Eclpse IDE enterprise version. Download and install it f you want.
+You can choose any IDE and configure it for web project. One that I recommend is [Eclipse IDE Enterprise Edition](https://www.eclipse.org/downloads/packages/release/kepler/sr2/eclipse-ide-java-ee-developers). Download and install it f you want.
 ## Requirements
 1. [Tomcat Server](https://tomcat.apache.org/download-80.cgi). Download and extract zip and add it to your project.
 2. For Database, I used PostgreSql. for that, we have to download and configure [JDBC connector](https://jdbc.postgresql.org/download.html).
