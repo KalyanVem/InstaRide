@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--browser sync in the (parent cd eg:week3) 
+		browser-sync start --server --directory --files "**/*"-->
+	<meta charset="utf-8">
+
+	<!-- tells some ie to use latest rendering versions -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width, initial=scaile=1">
+	
+	<title>Login Page</title>
+	
+
+	<link rel="stylesheet" href="css/bootstrap.min.css"></link>
+	<link rel="stylesheet"  href="css/style.css">
+	
+	<!-- google fonts- oxygen -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+	<form id="login-form" class="row">
+		<div id="side" class="col-md-6 visible-md visible-lg">
+			<h1>InstaRide</h1>
+			<span>Login</span>
+		</div>
+		<div class="col-md-6" id="main-content">
+			<label class="lbl">Username</label>
+			<input type="text" name="username" class="lbl">
+			<label class="lbl">Passw 	ord</label>
+			<input type="password" name="password" class="lbl"><br>
+			<div class="lbl">
+				<button class="col-md-5" type="submit"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+				<button class="col-md-5" type="reset"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+				
+ 				
+			</div>
+			<label class="lbl">
+				<input type="checkbox" name="remember-me">
+				Remember Me
+			</label>
+			<label class="lbl">
+				<a href="#">Forgot Password ?</a>
+			</label>
+			<hr >
+			<label class="lbl">
+				<span>Don't have an account ?</span>
+				<a href="#">Sign Up</a>
+			</label>
+		</div>
+	</form>
+
+	<!-- jQuery (Bootstrap JS plugins depend on it) -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>

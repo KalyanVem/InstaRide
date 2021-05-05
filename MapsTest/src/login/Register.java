@@ -24,6 +24,8 @@ public class Register extends HttpServlet {
 		String mobile = request.getParameter("mobile");
 		String email = request.getParameter("email");
 		String repass = request.getParameter("repass");
+		String longLat = request.getParameter("pk");
+		System.out.println(longLat);
 		boolean as = false;
 		try {	
 			as = AddAgent.addUser(username, repass, fName, lName, aadhar, mobile, email);	
@@ -35,7 +37,7 @@ public class Register extends HttpServlet {
 			if(as) {
 				HttpSession session = request.getSession();
 				session.setAttribute("uname", username);
-				response.sendRedirect("Login.jsp");
+				response.sendRedirect("Locate.jsp");
 			}
 			else {
 				request.setAttribute("Invalid_creds_message", "Invalid credentials. Please check username and password or create a new account by clicking register if you are new.");

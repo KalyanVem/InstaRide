@@ -3,18 +3,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.3.1.js"
-	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-	crossorigin="anonymous"></script>
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<link href="loginCSS.css" rel="stylesheet">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<meta charset="UTF-8">
-<title>Login</title>
+	<!--browser sync in the (parent cd eg:week3) 
+		browser-sync start --server --directory --files "**/*"-->
+	<meta charset="utf-8">
+
+	<!-- tells some ie to use latest rendering versions -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width, initial=scaile=1">
+	
+	<title>Login Page</title>
+	<style><%@include file="/css/bootstrap.min.css"%></style>
+	<style><%@include file="/css/style.css"%></style>
+	
+	<!-- google fonts- oxygen -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 	<% 
@@ -22,39 +26,39 @@
 			response.sendRedirect("Home.jsp");
 		}
 	%>
-
-
-	<div class="sidenav">
-		<div class="login-main-text">
-			<h2>
-				Welcome to<br> InstaRide Portal
-			</h2>
-			<p>Login to continue. Register if you are new.</p>
+	<form action="Login" method="post" id="login-form" class="row">
+		<div id="side" class="col-md-6 visible-md visible-lg">
+			<h1>InstaRide</h1>
+			<span>Login</span>
 		</div>
-	</div>
-
-	<div class="main">
-		<div class="col-md-6 col-sm-12">
-			<div class="login-form">
-				<form action="Login" method="post">
-					<div class="form-group">
-						<label>Username:</label> <input type="text" class="form-control"
-							placeholder="username" name="uname">
-					</div>
-					<div class="form-group">
-						<label>Password: </label><input type="password"
-							class="form-control" placeholder="password" name="pass">
-					</div>
-					<button type="submit" class="btn btn-black btn-block" value="Login">
-						Login</button>
-				</form>
-				<p>Don't have an account?</p>
-				<form action="RegRedirect" method="post">
-					<button type="submit" class="btn btn-secondary btn-block"
-						value="Register">Register</button>
-				</form>
+		<div class="col-md-6" id="main-content">
+			<label class="lbl">Username</label>
+			<input type="text" name="uname" class="lbl">
+			<label class="lbl">Password</label>
+			<input type="password" name="pass" class="lbl"><br>
+			<div class="lbl">
+				<button class="col-md-5" type="submit"> Login</button>
+				<button class="col-md-5" type="reset"> Clear</button>		
 			</div>
+			<label class="lbl">
+				<input type="checkbox" name="remember-me">
+				Remember Me
+			</label>
+			<label class="lbl">
+				<a href="#">Forgot Password ?</a>
+			</label>
+			<hr >
+			<label class="lbl">
+				<span>Don't have an account ?</span>
+				<a href="Register.jsp">Sign Up</a>
+			</label>
+			
 		</div>
-	</div>
+	</form>
+
+	<!-- jQuery (Bootstrap JS plugins depend on it) -->
+	<script src="/js/jquery-3.6.0.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/script.js"></script>
 </body>
 </html>

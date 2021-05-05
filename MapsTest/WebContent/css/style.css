@@ -1,0 +1,97 @@
+*{
+	font-family: 'Oxygen', sans-serif;
+	font-size: 16px;
+}
+html{
+
+	/*background-color: #5cbbea;*/
+	/*background-color:#Fff4de; */
+	background-color: #Ececec;
+}
+body{
+	box-sizing: border-box;
+	/*background-color:  white;*/
+	/*background-color: #Fff4de;*/
+	background-color: #Ececec;
+}
+#side{
+	height: inherit;
+	background-color: #056594;
+	padding-left: 0;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px; 
+	padding-top: 10vh;
+	padding-left: 10vw;	
+	color: white;
+}
+#login-form{
+	width: 80vw;
+	margin: auto;
+	height: 480px;
+	margin-top: 15vh;
+	border-radius: 10px;
+	border-color: darkslategray;
+	box-shadow: 0 10px 10px 5px darkslategrey;
+}
+
+#main-content{
+	padding-top: 8vh;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px; 
+	position: relative;
+	background-color: lightslategray;
+	height: inherit;
+	padding-left: 8%;	
+}
+#main-content a{
+	color: white;
+	text-decoration: none;
+}
+#main-content a:hover{
+	color: #056594;
+}
+
+.lbl{
+	float: left;
+	clear: both;
+	width: 60%;
+	margin-top: 5px;
+	/*margin-right: 10%;*/
+}
+
+input{
+	border-radius: 10px;
+	border : 1px solid #ccc;
+	margin-bottom: 10px;
+	padding: 10px 5px;
+}
+button{
+	margin: 10px 12px;
+	height: 40px;
+	border-radius: 10px;
+	border : 1px solid #ccc;
+}
+hr{
+	color: white;
+    width: 60%;
+    float: left;
+}
+/*Signup*/
+#signup-form{
+	width: 80vw;
+	margin: auto;
+	height: 900px;
+	margin-top: 15vh;
+	margin-bottom: 15vh;
+	border-radius: 10px;
+	border-color: darkslategray;
+	box-shadow: 0 10px 10px 5px darkslategrey;
+}
+
+@media(max-width: 767px){
+	#main-content{
+	
+	border-radius:10px;
+		
+	}
+}
