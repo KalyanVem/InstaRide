@@ -19,6 +19,10 @@ public class AddAgent extends HttpServlet {
 			"values(?,?,?,?,?,?,?)";
 	static String providerLocationSql = "insert into provider_location(provider_id,latitude,longitude)"+
 			"values(?,?,?)";
+	static String providerSql = "insert into provider(provider_id,username,password,email,age)"+
+			"values(?,?,?,?,?)";
+	static String providerAddressSql = "insert into provider_address(provider_id,address)"+
+			"values(?,?)";
 	static String url = "jdbc:postgresql://localhost/JMaps";
 	static String dbUname = "postgres";
 	static String dbPass = "1234";
@@ -60,21 +64,42 @@ public class AddAgent extends HttpServlet {
 		}
 	}
 	
-public static boolean addProvider(String uname, String lat, String longitude) throws SQLException {
+public static boolean addProvider(String uname, String pass, String email, String age) throws SQLException {
 		
 		try {
+			System.out.println("Trying addProvider");
 			Class.forName("org.postgresql.Driver");
 			Connection con = DriverManager.getConnection(url, dbUname, dbPass);
-			PreparedStatement st = con.prepareStatement(providerLocationSql);
+			PreparedStatement st = con.prepareStatement(providerSql);
 			st.setString(1,uname);
-			st.setString(2, lat);
-			st.setString(3,longitude);
+			st.setString(2, uname);
+			st.setString(3,pass);
+			st.setString(4,email);
+			st.setString(5,age);
 			st.executeUpdate();
-			System.out.println(uname+": Updated location");
+			System.out.println(uname+": Inserted in Provider table");
 			return true;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			return false;
 		}
 	}
+
+public static boolean addProviderAddress(String uname, String address) throws SQLException {
+	
+	try {
+		System.out.println("Trying addProvider");
+		Class.forName("org.postgresql.Driver");
+		Connection con = DriverManager.getConnection(url, dbUname, dbPass);
+		PreparedStatement st = con.prepareStatement(providerAddressSql);
+		st.setString(1, uname);
+		st.setString(2,address);
+		st.executeUpdate();
+		System.out.println(address+": Inserted in Provider table");
+		return true;
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		return false;
+	}
+}
 }

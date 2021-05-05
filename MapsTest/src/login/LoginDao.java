@@ -3,7 +3,7 @@ package login;
 import java.sql.*;
 
 public class LoginDao {
-	String sql = "select * from login where uname = ? and pass = ?";
+	String sql = "select * from provider where username = ? and password = ?";
 	String url = "jdbc:postgresql://localhost/JMaps";
 	String username = "postgres";
 	String pass = "1234";
@@ -13,6 +13,7 @@ public class LoginDao {
 			Connection con = DriverManager.getConnection(url, username, pass);
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1,uname);
+			System.out.println(uname);
 			st.setString(2, pwd);
 			ResultSet rs = st.executeQuery();
 			if(rs.next()) {

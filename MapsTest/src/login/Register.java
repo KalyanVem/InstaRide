@@ -26,15 +26,16 @@ public class Register extends HttpServlet {
 		String repass = request.getParameter("repass");
 		String longLat = request.getParameter("pk");
 		System.out.println(longLat);
-		boolean as = false;
+		boolean as = false, proUserFlag=false, proLocFlag=false;
 		try {	
-			as = AddAgent.addUser(username, repass, fName, lName, aadhar, mobile, email);	
+			as = AddAgent.addUser(username, repass, fName, lName, aadhar, mobile, email);
+			proUserFlag = AddAgent.addProvider(username, repass, email, "AGE");
 		} catch (ServletException | IOException | SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
-			if(as) {
+			if(as && proUserFlag) {
 				HttpSession session = request.getSession();
 				session.setAttribute("uname", username);
 				response.sendRedirect("Locate.jsp");
@@ -48,6 +49,5 @@ public class Register extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
 
 }

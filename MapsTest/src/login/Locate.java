@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import controller.AddAgent;
+import controller.Rev;
 
 
 @MultipartConfig
@@ -41,10 +42,12 @@ public class Locate extends HttpServlet {
 //		System.out.println(session.getAttribute("uname"));
 //		File uploads = new File((String) session.getAttribute("uname"));
 		String lat = request.getParameter("location");
+		Rev rev = new Rev();
 		String[] latLong = lat.split(",");
-		boolean as = false;
+		boolean as = false, addressFlag = false;
 		try {	
-			as = AddAgent.addProviderLocation((String) session.getAttribute("uname"), latLong[0], latLong[1]);	
+			as = AddAgent.addProviderLocation((String) session.getAttribute("uname"), latLong[0], latLong[1]);
+			addressFlag = AddAgent.addProviderAddress((String) session.getAttribute("uname"), rev.address);
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
