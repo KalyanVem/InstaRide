@@ -22,7 +22,7 @@
 <meta name="viewport"
 	content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 <script
-	src="https://apis.mapmyindia.com/advancedmaps/v1/MAPS_API_KEY/map_load?v=1.5&plugin=cluster"></script>
+	src="https://apis.mapmyindia.com/advancedmaps/v1/qgbssrzwvoopjslvm6fj8tcsm5dymfeo/map_load?v=1.5&plugin=cluster"></script>
 <style>
 #map {
 	top: 20;

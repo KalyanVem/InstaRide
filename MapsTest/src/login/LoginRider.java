@@ -10,28 +10,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Login")
-public class Login extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+@WebServlet("/LoginRider")
+public class LoginRider extends HttpServlet {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("uname");
-		System.out.println(username+" in Login.java");
+		System.out.println(username+" in LoginRider.java");
 		String pass = request.getParameter("pass");
 		HttpSession session = request.getSession();
 		LoginDao dao = new LoginDao();
 		try {
 			if (!(username == "")) {
-				if (dao.validateProvider(username, pass)) {
+				if (dao.validateRider(username, pass)) {
 					session = request.getSession();
 					session.setAttribute("uname", username);
 					response.sendRedirect("Home.jsp");
 				} else {
+					System.out.println("no rec found");
 					request.setAttribute("Invalid_creds_message",
 							"Invalid credentials. Please check username and password or create a new account by clicking register if you are new.");
 					response.sendRedirect("Login.jsp");
 				}
 			}
 			else {
+				System.out.println("No uname");
 				response.sendRedirect("Login.jsp");
 			}
 		} catch (SQLException e) {
