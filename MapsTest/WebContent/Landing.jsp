@@ -86,7 +86,9 @@
 <body>
 	<%
 	if (session.getAttribute("uname") != null) {
-		response.sendRedirect("Home.jsp");
+		if(((String)session.getAttribute("role")).equals("rider")){
+			response.sendRedirect("HomeRider.jsp");
+		}else response.sendRedirect("Home.jsp");
 	}
 	%>
 	<form id="login-form" class="row">

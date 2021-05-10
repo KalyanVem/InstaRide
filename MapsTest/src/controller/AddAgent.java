@@ -27,6 +27,11 @@ public class AddAgent extends HttpServlet {
 	static String riderSql = "insert into rider(rider_id,username,password,email,age)" + "values(?,?,?,?,?)";
 	static String riderAddressSql = "insert into rider_address(rider_id,address)" + "values(?,?)";
 	
+	static String addVeh = "insert into provider_veh_details(provider_id, vehname, vehno,  vehmodel)" +"values(?,?,?,?)";
+	
+	static String addRide = "insert into ride(provider_id, rider_id, vehicle_name, vehicle_no, vehicle_model, status) values(?,?,?,?,?,?)";
+	
+	static String approveRide = "update ride set status=? where provider_id=? and rider_id=? and vehicle_name=? and vehicle_no=? and vehicle_model=?";
 	static String url = "jdbc:postgresql://localhost/JMaps";
 	static String dbUname = "postgres";
 	static String dbPass = "1234";
@@ -158,6 +163,59 @@ public class AddAgent extends HttpServlet {
 			st.setString(2, address);
 			st.executeUpdate();
 			System.out.println(address + ": Inserted in Provider table");
+			return true;
+		} catch (ClassNotFoundException e) {
+			return false;
+		}
+	}
+	
+	public static boolean addVehicle(String uname, String vName, String vNum, String vModel) throws ServletException, IOException, SQLException {
+		try {
+			Class.forName("org.postgresql.Driver");
+			Connection con = DriverManager.getConnection(url, dbUname, dbPass);
+			PreparedStatement st = con.prepareStatement(addVeh);
+			st.setString(1, uname);
+			st.setString(2, vName);
+			st.setString(3, vNum);
+			st.setString(4, vModel);
+			st.executeUpdate();
+			return true;
+		} catch (ClassNotFoundException e) {
+			return false;
+		}
+	}
+	
+	public static boolean addRideRequest(String p_id, String r_id, String vName, String vNum, String vModel) throws ServletException, IOException, SQLException {
+		try {
+			Class.forName("org.postgresql.Driver");
+			Connection con = DriverManager.getConnection(url, dbUname, dbPass);
+			PreparedStatement st = con.prepareStatement(addRide);
+			st.setString(1, p_id);
+			st.setString(2, r_id);
+			st.setString(3, vNum);
+			st.setString(4, vName);
+			st.setString(5, vModel);
+			st.setString(6, "x");
+			st.executeUpdate();
+			return true;
+		} catch (ClassNotFoundException e) {
+			return false;
+		}
+	}
+	
+	public static boolean approveRideRequest(String p_id, String r_id, String vName, String vNum, String vModel) throws ServletException, IOException, SQLException {
+		try {
+			Class.forName("org.postgresql.Driver");
+			Connection con = DriverManager.getConnection(url, dbUname, dbPass);
+			PreparedStatement st = con.prepareStatement(approveRide);
+			st.setString(1, "o");
+			st.setString(2, p_id);
+			st.setString(3, r_id);
+			st.setString(4, vName);
+			st.setString(5, vNum);
+			st.setString(6, vModel);
+			st.executeUpdate();
+			System.out.println("updates "+ p_id+" "+r_id+" "+ vName);
 			return true;
 		} catch (ClassNotFoundException e) {
 			return false;

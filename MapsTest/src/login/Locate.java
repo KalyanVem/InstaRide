@@ -28,7 +28,6 @@ public class Locate extends HttpServlet {
 		System.out.println("In Locate.java");
 		//File
 		HttpSession session = request.getSession();
-		String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
 	    Part filePart = request.getPart("photo"); // Retrieves <input type="file" name="file">
 	    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 	    InputStream fileContent = filePart.getInputStream();
@@ -37,7 +36,30 @@ public class Locate extends HttpServlet {
 	    File targetFile = new File("C:\\Users\\Kalyan\\Documents\\InstaRideResources\\"+(String) session.getAttribute("uname")+"_photo.jpg");
 	    OutputStream outStream = new FileOutputStream(targetFile);
 	    outStream.write(buffer);
-		System.out.println(fileName);
+	    outStream.close();
+	    System.out.println(fileName);
+	    
+	    Part filePartAad = request.getPart("aadhar"); // Retrieves <input type="file" name="file">
+	    String fileNameAad = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+	    InputStream fileContentAad = filePartAad.getInputStream();
+	    byte[] bufferAad = new byte[fileContentAad.available()];
+	    fileContentAad.read(bufferAad);
+	    File targetFileAad = new File("C:\\Users\\Kalyan\\Documents\\InstaRideResources\\"+(String) session.getAttribute("uname")+"_aadhar.jpg");
+	    OutputStream outStreamAad = new FileOutputStream(targetFileAad);
+	    outStreamAad.write(bufferAad);
+	    outStreamAad.close();
+	    System.out.println(fileNameAad);
+	    
+	    Part filePartLic = request.getPart("licence"); // Retrieves <input type="file" name="file">
+	    String fileNameLic = Paths.get(filePartLic.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+	    InputStream fileContentLic = filePartLic.getInputStream();
+	    byte[] bufferLic = new byte[fileContentLic.available()];
+	    fileContentLic.read(bufferLic);
+	    File targetFileLic = new File("C:\\Users\\Kalyan\\Documents\\InstaRideResources\\"+(String) session.getAttribute("uname")+"_license.jpg");
+	    OutputStream outStreamLic = new FileOutputStream(targetFileLic);
+	    outStreamLic.write(bufferLic);
+	    outStreamLic.close();
+	    System.out.println(fileNameLic);
 		
 //		System.out.println(session.getAttribute("uname"));
 //		File uploads = new File((String) session.getAttribute("uname"));
@@ -53,7 +75,7 @@ public class Locate extends HttpServlet {
 			e1.printStackTrace();
 		}
 		System.out.println("In Locate.java, printing lats: " + lat);
-		response.sendRedirect("Home.jsp");
+		response.sendRedirect("AddVehicle.jsp");
 	}
 
 }

@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,25 +21,23 @@ import controller.AddAgent;
 import controller.Rev;
 
 
+@MultipartConfig
 @WebServlet("/LocateRider")
 public class LocateRider extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("In LocateRider.java");
 		//File
 		HttpSession session = request.getSession();
-		
 		String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
 	    Part filePart = request.getPart("photo"); // Retrieves <input type="file" name="file">
+	    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 	    InputStream fileContent = filePart.getInputStream();
-	    
 	    byte[] buffer = new byte[fileContent.available()];
 	    fileContent.read(buffer);
 	    File targetFile = new File("C:\\Users\\Kalyan\\Documents\\InstaRideResources\\"+(String) session.getAttribute("uname")+"_photo.jpg");
-	    
 	    OutputStream outStream = new FileOutputStream(targetFile);
 	    outStream.write(buffer);
+		System.out.println(fileName);
 		
 //		System.out.println(session.getAttribute("uname"));
 //		File uploads = new File((String) session.getAttribute("uname"));
@@ -50,10 +49,11 @@ public class LocateRider extends HttpServlet {
 			as = AddAgent.addRiderLocation((String) session.getAttribute("uname"), latLong[0], latLong[1]);
 			addressFlag = AddAgent.addRiderAddress((String) session.getAttribute("uname"), rev.address);
 		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		System.out.println("In Locate.java, printing lats: " + lat);
-		response.sendRedirect("Home.jsp");
+		response.sendRedirect("HomeRider.jsp");
 	}
 
 }

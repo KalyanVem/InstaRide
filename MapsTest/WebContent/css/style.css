@@ -1,97 +1,270 @@
 *{
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	font-size: 16px;
 }
-html{
-
-	/*background-color: #5cbbea;*/
-	/*background-color:#Fff4de; */
-	background-color: #Ececec;
-}
 body{
-	box-sizing: border-box;
-	/*background-color:  white;*/
-	/*background-color: #Fff4de;*/
-	background-color: #Ececec;
-}
-#side{
-	height: inherit;
-	background-color: #056594;
-	padding-left: 0;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px; 
-	padding-top: 10vh;
-	padding-left: 10vw;	
-	color: white;
-}
-#login-form{
-	width: 80vw;
-	margin: auto;
-	height: 480px;
-	margin-top: 15vh;
-	border-radius: 10px;
-	border-color: darkslategray;
-	box-shadow: 0 10px 10px 5px darkslategrey;
+	background-color :#Ececec;
+	color: #fff;
+	font-size: 16px;
 }
 
-#main-content{
-	padding-top: 8vh;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px; 
-	position: relative;
-	background-color: lightslategray;
-	height: inherit;
-	padding-left: 8%;	
+/*HEADER*/
+#header-nav{
+	background-color: #056594;
+	border-radius: 0;
+	border: 0;
+	margin-left: -10px;
 }
-#main-content a{
-	color: white;
+
+#logo-image{
+	background :url('../images/logo-img.jpg') no-repeat;
+	border-radius: 40px; 
+	width: 150px;
+	height: 150px;
+	margin: 10px 15px 10px 0px;
+}
+#user-logo, #provider-logo{
+	width: 30px;
+	height: 30px;
+	margin: 2px;
+}
+
+.navbar-brand{
+	padding-top: 25px;
+}
+
+
+.navbar-brand h1{
+	font-family: 'Lora', serif;
+	color: #fff;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #222;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: .75;
+}
+
+/*not to show underline for the brand */
+.navbar-brand a:hover, .navbar-brand a:focus{
 	text-decoration: none;
 }
-#main-content a:hover{
-	color: #056594;
+.navbar-brand p{ /*kosher cert */
+	color: #000;
+	text-transform: uppercase;
+	font-size: .7em;
+	margin-top: 15px;
+	font-weight: bolder;
+
 }
 
-.lbl{
-	float: left;
+.navbar-brand p span {/*star-k*/
+	vertical-align: middle;
+
+}
+
+
+
+#nav-list{
+	margin-top: 10px;
+}
+
+#nav-list a,#nav-list button{
+	color: #fff;
+	text-align: center;
+}
+#nav-list button{
+	background-color: inherit;
+	font-size: 1em;
+	padding: 13px; 
+	border: 0px;
+	width: -webkit-fill-available;
+}
+#nav-list a:hover, #nav-list button:hover{
+	background: #e41534;
+	border: 1px solid #e7e7e7;
+	border-radius: 7px;
+}
+
+#nav-list a span,#nav-list button span{
+	font-size: 1.8em;
+}
+
+
+
+/*for the toggle button*/
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar{
+	border: 1px solid #e41534;
+}
+
+.navbar-header button.navbar-toggle{
 	clear: both;
-	width: 60%;
-	margin-top: 5px;
-	/*margin-right: 10%;*/
+	margin-top: -30px;
 }
 
-input{
-	border-radius: 10px;
-	border : 1px solid #ccc;
-	margin-bottom: 10px;
-	padding: 10px 5px;
+.container .jumbotron {
+	box-shadow: 15px 20px 20px darkslategrey;
+	border : 1px solid white;
 }
-button{
-	margin: 10px 12px;
-	height: 40px;
-	border-radius: 10px;
-	border : 1px solid #ccc;
-}
-hr{
-	color: white;
-    width: 60%;
-    float: left;
-}
-/*Signup*/
-#signup-form{
-	width: 80vw;
-	margin: auto;
-	height: 900px;
-	margin-top: 15vh;
-	margin-bottom: 15vh;
-	border-radius: 10px;
-	border-color: darkslategray;
-	box-shadow: 0 10px 10px 5px darkslategrey;
+#home-tiles a{
+	color: inherit;
 }
 
-@media(max-width: 767px){
-	#main-content{
+
+#main-content{
+		min-height: 380px;
+	}
+
+
+/*Footer*/
+.panel-footer{
+	margin-top: 30px;
+	padding-top: 35px;
+	padding-bottom: 30px;
+	background-color: #e41534;
+	border-top: 0; 
+}
+
+#copy-right, #copy-right a{
+	margin-top: 35px;
+	color: white; 
+}
+/*end of footers*/
+/*End of Home Page*/
+
+
+
+
+
+/*media queries for all */
+
+/*large devices only*/
+@media (min-width: 1200px){
+	.container .jumbotron{
+		/*background: url("../images/DominosRestaurant_1200.jpg") no-repeat;
+		height: 675px;*/
+		/*min-height: 675px;*/
+	}
 	
-	border-radius:10px;
-		
+}
+/*medium device only*/
+@media (min-width: 992px) and (max-width: 1199px){
+	.container .jumbotron{
+		/*background: url("../images/DominosRestaurant_992.jpg") no-repeat;
+		height: 560px;*/
+		/*min-height: 560px;*/
+	}
+	.menu-item-description{
+		font-size: 0.9em !important;
+	}
+	.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle), 
+	.btn-group>.btn:last-child:not(:first-child), 
+	.btn-group>.dropdown-toggle:not(:first-child){
+		border-radius: 4px !important;
+		margin-bottom: 5px;
+		margin-left: 15%;
 	}
 }
+/*small devices only*/
+@media (min-width: 768px) and (max-width: 991px){
+	.container .jumbotron{
+		/*background: url("../images/DominosRestaurant_992.jpg") no-repeat;
+		height: 560px;*/
+		/*min-height: 560px;*/
+	}
+	#logo-image{
+		background :url('../images/logo-img-sm.png') no-repeat;
+		border-radius: 30px; 
+		width: 100px;
+		height: 100px;
+		margin : 10px 5px 5px 0px;
+	}
+	.navbar-brand h1{
+		font-size: 15px;
+		font-style: normal;
+	}
+	.navbar-brand p{
+		font-size: 9px;
+	}
+	#nav-list button{
+		font-size: 1.2em !important;
+	}
+	#collapsable-nav a{
+		font-size: 1.2em;
+	}
+	#main-content {
+			min-height: 312px;
+		}
+	.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle), 
+	.btn-group>.btn:last-child:not(:first-child), 
+	.btn-group>.dropdown-toggle:not(:first-child){
+		border-radius: 4px !important;
+		margin-bottom: 5px;
+		margin-left: 10%;
+	}	
+}
+
+/*extra small devices only*/
+@media (max-width: 767px){
+	.container .jumbotron{
+		/*background: url("../images/DominosRestaurant_992.jpg") no-repeat;
+		height: 560px;*/
+		/*min-height: 560px;*/
+		padding: 0;
+		margin :0 0 15px 0;
+	}
+	/*header*/
+	.navbar-brand{
+		padding-top: 10px;
+		height: 80px;
+	}
+
+	.navbar-brand h1{
+		padding-top: 10px;
+		font-size: 5vw;
+	}
+	.navbar-brand p{
+		font-size: .6em;
+		margin-top: 12px;
+	}
+	.navbar-brand p img{
+		height: 20px;
+	}
+	#collapsable-nav a{
+		font-size: 1.2em;
+	}
+	#nav-list button{
+		font-size: 1.2em !important;
+	}
+	#nav-list button span{
+		font-size: 1em;
+		margin-right: 10px;
+	}
+	#collapsable-nav a span{
+		font-size: 1em !important;
+		text-align: vertical;
+		margin-right: 10px;
+	}
+		#main-content {
+			min-height: 440px;
+		}
+	.panel-footer section{
+		margin-bottom: 30px;
+		text-align: center;
+	}
+	.panel-footer section hr{
+		width: 50%;
+	}
+	.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle), 
+	.btn-group>.btn:last-child:not(:first-child), 
+	.btn-group>.dropdown-toggle:not(:first-child){
+		border-radius: 4px !important;
+		margin-bottom: 5px;
+		margin-left: 5%;
+	}
+
+}
+
+
+
